@@ -42,7 +42,7 @@ jobs:
       - name: Configure django
         env:
           DATABASE_URL: postgres://user:password@localhost:5432/test_db
-          DB_HOST = localhost
+          DB_HOST: localhost
           DB_PORT: 5432
           DB_NAME: test_db
           DB_USER: user
