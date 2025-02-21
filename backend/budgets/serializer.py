@@ -4,9 +4,9 @@ from .models import Budget, BudgetItem
 class BudgetSerializer(serializers.ModelSerializer):
   class Meta:
     model = Budget
-    field = '__all__'
+    fields = '__all__'
 
 class BudgetItemSerializer(serializers.ModelSerializer):
   class Meta:
     model: BudgetItem
-    field = '__all__'
+    fields = '__all__'
