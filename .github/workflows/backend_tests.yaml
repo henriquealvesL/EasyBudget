@@ -37,7 +37,7 @@ jobs:
       - name: Install dependencies
         run: |
           source venv/bin/activate
-          pip install -r requirements.txt
+          pip install -r backend/requirements.txt
 
       - name: Configure django
         env:
