@@ -2,9 +2,7 @@ name: Run Django Tests
 
 on:
   push:
-    branches:
-      - main
-      - dev
+    branches: ["develop", "main"]
   pull_request:
   workflow_dispatch:
 
