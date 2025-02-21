@@ -44,9 +44,9 @@ jobs:
           DATABASE_URL: postgres://user:password@localhost:5432/test_db
         run: |
           source venv/bin/activate
-          python manage.py migrate
+          python backend/manage.py migrate
 
       - name: Run tests with pytest
         run: |
           source venv/bin/activate
-          pytest --disable-warnings
+          pytest backend
