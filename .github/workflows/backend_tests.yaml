@@ -1,4 +1,4 @@
-name: Run Django Tests
+name: Run backend tests
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  test:
+  Backend tests:
     runs-on: ubuntu-latest
 
     services:
@@ -42,6 +42,10 @@ jobs:
       - name: Configure django
         env:
           DATABASE_URL: postgres://user:password@localhost:5432/test_db
+          DB_NAME: test_db
+          DB_USER: user
+          DB_PORT: 5432
+
         run: |
           source venv/bin/activate
           python backend/manage.py migrate
