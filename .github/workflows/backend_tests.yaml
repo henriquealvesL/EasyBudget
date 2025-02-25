@@ -16,7 +16,7 @@ jobs:
         env:
           POSTGRES_USER: user
           POSTGRES_PASSWORD: password
-          POSTGRES_DB: test_db
+          POSTGRES_DB: easy_budget
         ports:
           - 5432:5432
 
@@ -41,7 +41,7 @@ jobs:
 
       - name: Configure django
         env:
-          DATABASE_URL: postgres://user:password@localhost:5432/test_db
+          DATABASE_URL: postgres://user:password@localhost:5432/easy_budget
         run: |
           source venv/bin/activate
           python backend/manage.py migrate
