@@ -73,6 +73,6 @@ class BudgetSerializer(serializers.ModelSerializer):
       ).aggregate(total=Sum('item_price'))['total'] or 0
       
       instance.total_price = total_price
-      instance.save(update_fields=['total_price'])
+      instance.save()
       
     return instance
