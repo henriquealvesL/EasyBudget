@@ -21,7 +21,10 @@ class BudgetSerializer(serializers.ModelSerializer):
   def create(self, validated_data):
     items_data = validated_data.pop('items', [])
     items_to_create = []
-    budget = Budget.objects.create(**validated_data)
+    request = self.context.get('request')
+
+    budget = Budget.objects.create(user=request.user, user_name=request.user.username ,**validated_data)
+    
     for item in items_data:
       items_to_create.append(BudgetItem(budget=budget, **item))
     
