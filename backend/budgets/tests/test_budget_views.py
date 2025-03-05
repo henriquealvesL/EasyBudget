@@ -1,3 +1,4 @@
+from rest_framework_simplejwt.tokens import AccessToken
 from rest_framework.test import APITestCase
 from rest_framework import status
 from django.urls import reverse
@@ -9,6 +10,9 @@ class BudgetListViewTestCase(APITestCase):
   def setUp(self):
       """Create test user, products, and budgets"""
       self.user = User.objects.create_user(username="testuser", password="password123")
+      self.token = str(AccessToken.for_user(self.user)) 
+      self.client.credentials(HTTP_AUTHORIZATION=f"Bearer {self.token}")
+
       self.product1 = Product.objects.create(name="Product 1", price=100.0)
       self.product2 = Product.objects.create(name="Product 2", price=50.0)
       

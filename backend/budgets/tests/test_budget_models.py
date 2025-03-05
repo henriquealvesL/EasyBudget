@@ -2,7 +2,7 @@ import pytest
 from budgets.models import Budget, BudgetItem
 
 @pytest.mark.django_db
-def test_creat_budget(user):
+def test_create_budget(user):
   budget = Budget.objects.create(user=user)
   assert budget.user == user  
   assert budget.items.count() == 0 
